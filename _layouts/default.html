@@ -7,6 +7,7 @@
       <header class="site-header">
         <a class="site-name" href="{{ '/' | relative_url }}">Yuzhang (Ernie) Zhao</a>
         {% include navigation.html %}
+        <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false">Dark mode</button>
       </header>
 
       <main class="page-content{% if page.url == '/' %} home-page{% endif %}" id="main">
@@ -16,5 +17,28 @@
 
       {% include footer.html %}
     </div>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector(".theme-toggle");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+        const currentTheme = () => root.dataset.theme || (systemTheme.matches ? "dark" : "light");
+        const syncButton = () => {
+          button.setAttribute("aria-pressed", String(currentTheme() === "dark"));
+        };
+
+        button.addEventListener("click", () => {
+          const theme = currentTheme() === "dark" ? "light" : "dark";
+          root.dataset.theme = theme;
+          try {
+            localStorage.setItem("yuzhang-theme", theme);
+          } catch {}
+          syncButton();
+        });
+
+        systemTheme.addEventListener("change", syncButton);
+        syncButton();
+      })();
+    </script>
   </body>
 </html>
