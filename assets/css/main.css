@@ -3,16 +3,72 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.7;
-  color: #202a33;
-  background: #fff;
+  color: var(--color-ink);
+  background: var(--color-page);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
+  --color-page: #ffffff;
   --color-ink: #202a33;
+  --color-heading: #18232c;
   --color-muted: #4c5965;
+  --color-lead: #303e49;
   --color-accent: #075985;
+  --color-link-hover: #063f5b;
+  --color-nav: #344454;
+  --color-nav-hover: #073b59;
+  --color-nav-hover-bg: #f2f6f8;
   --color-border: #d8e0e6;
   --color-focus: #9a3412;
+  --color-control-bg: #ffffff;
+  --color-control-hover-bg: #f2f6f8;
+  --color-control-border: #62717d;
+  --color-skip-bg: #17324a;
+  --color-skip-text: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --color-page: #111a22;
+    --color-ink: #e7eef4;
+    --color-heading: #f2f6f9;
+    --color-muted: #b7c4cf;
+    --color-lead: #d8e2e9;
+    --color-accent: #98d7ff;
+    --color-link-hover: #c5eaff;
+    --color-nav: #dce7ef;
+    --color-nav-hover: #ffffff;
+    --color-nav-hover-bg: #293945;
+    --color-border: #3d4d5a;
+    --color-focus: #ffcb83;
+    --color-control-bg: #1c2832;
+    --color-control-hover-bg: #293945;
+    --color-control-border: #899cab;
+    --color-skip-bg: #ffcb83;
+    --color-skip-text: #17212a;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-page: #111a22;
+  --color-ink: #e7eef4;
+  --color-heading: #f2f6f9;
+  --color-muted: #b7c4cf;
+  --color-lead: #d8e2e9;
+  --color-accent: #98d7ff;
+  --color-link-hover: #c5eaff;
+  --color-nav: #dce7ef;
+  --color-nav-hover: #ffffff;
+  --color-nav-hover-bg: #293945;
+  --color-border: #3d4d5a;
+  --color-focus: #ffcb83;
+  --color-control-bg: #1c2832;
+  --color-control-hover-bg: #293945;
+  --color-control-border: #899cab;
+  --color-skip-bg: #ffcb83;
+  --color-skip-text: #17212a;
 }
 
 * {
@@ -23,7 +79,7 @@ body {
   margin: 0;
   min-width: 320px;
   color: var(--color-ink);
-  background: #fff;
+  background: var(--color-page);
 }
 
 a {
@@ -33,11 +89,12 @@ a {
 }
 
 a:hover {
-  color: #063f5b;
+  color: var(--color-link-hover);
   text-decoration-thickness: 0.12em;
 }
 
-a:focus-visible {
+a:focus-visible,
+.theme-toggle:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 3px;
   border-radius: 2px;
@@ -50,13 +107,13 @@ a:focus-visible {
   left: 0.75rem;
   padding: 0.6rem 0.85rem;
   transform: translateY(-160%);
-  color: #fff;
-  background: #17324a;
+  color: var(--color-skip-text);
+  background: var(--color-skip-bg);
 }
 
 .skip-link:focus {
   transform: translateY(0);
-  color: #fff;
+  color: var(--color-skip-text);
 }
 
 .site-shell {
@@ -86,6 +143,22 @@ a:focus-visible {
   text-decoration: none;
 }
 
+.theme-toggle {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-control-border);
+  border-radius: 0.25rem;
+  color: var(--color-ink);
+  background: var(--color-control-bg);
+  font: inherit;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--color-control-hover-bg);
+}
+
 .site-nav ul,
 .footer-links {
   display: flex;
@@ -96,22 +169,26 @@ a:focus-visible {
   list-style: none;
 }
 
+.site-nav ul {
+  align-items: baseline;
+}
+
 .site-nav a {
   display: inline-block;
   padding: 0.3rem 0.45rem;
   border-radius: 0.2rem;
-  color: #344454;
+  color: var(--color-nav);
   font-size: 0.94rem;
   text-decoration: none;
 }
 
 .site-nav a:hover {
-  color: #073b59;
-  background: #f2f6f8;
+  color: var(--color-nav-hover);
+  background: var(--color-nav-hover-bg);
 }
 
 .site-nav a[aria-current="page"] {
-  color: #073b59;
+  color: var(--color-nav-hover);
   font-weight: 650;
   text-decoration: underline;
   text-decoration-thickness: 0.1em;
@@ -126,7 +203,7 @@ a:focus-visible {
 h1,
 h2,
 h3 {
-  color: #18232c;
+  color: var(--color-heading);
   line-height: 1.25;
   text-wrap: balance;
 }
@@ -158,7 +235,7 @@ p {
 .home-page > p:first-of-type {
   max-width: 42rem;
   margin-bottom: 1.65rem;
-  color: #303e49;
+  color: var(--color-lead);
   font-size: clamp(1.15rem, 3vw, 1.32rem);
   font-weight: 570;
   line-height: 1.55;
@@ -172,7 +249,7 @@ li {
   padding-left: 0.12rem;
 }
 
-li + li {
+.page-content li + li {
   margin-top: 0.45rem;
 }
 
