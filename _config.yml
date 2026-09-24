@@ -20,6 +20,8 @@ navigation:
     url: /about/
   - label: Work Experience
     url: /experience/
+  - label: Projects
+    url: /projects/
   - label: Contact
     url: /contact/
 
@@ -31,6 +33,7 @@ social:
 exclude:
   - README.md
   - PLAN.md
+  - Change1.md
   - Gemfile
   - Gemfile.lock
   - vendor
