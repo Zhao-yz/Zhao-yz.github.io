@@ -1,0 +1,36 @@
+title: "Yuzhang (Ernie) Zhao"
+description: "MBA candidate at UC Berkeley Haas · Product Manager Intern at TikTok · Former co-founder and Head of Products at United AI"
+url: "https://zhao-yz.github.io"
+baseurl: ""
+lang: "en"
+author: "Yuzhang (Ernie) Zhao"
+email: "yuzhang95@berkeley.edu"
+
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+navigation:
+  - label: Home
+    url: /
+  - label: About
+    url: /about/
+  - label: Work Experience
+    url: /experience/
+  - label: Contact
+    url: /contact/
+
+social:
+  name: "Yuzhang (Ernie) Zhao"
+  links:
+    - "https://www.linkedin.com/in/yuzhang-z"
+
+exclude:
+  - README.md
+  - PLAN.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

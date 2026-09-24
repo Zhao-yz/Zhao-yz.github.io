@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  {% include head.html %}
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-name" href="{{ '/' | relative_url }}">Yuzhang (Ernie) Zhao</a>
+        {% include navigation.html %}
+      </header>
+
+      <main class="page-content" id="main">
+        <h1>{{ page.heading | default: page.title | escape }}</h1>
+        {{ content }}
+      </main>
+
+      {% include footer.html %}
+    </div>
+  </body>
+</html>
