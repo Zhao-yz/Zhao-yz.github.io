@@ -155,7 +155,7 @@ p {
   margin: 0 0 1rem;
 }
 
-.lead {
+.home-page > p:first-of-type {
   max-width: 42rem;
   margin-bottom: 1.65rem;
   color: #303e49;

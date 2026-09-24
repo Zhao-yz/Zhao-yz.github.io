@@ -9,7 +9,7 @@
         {% include navigation.html %}
       </header>
 
-      <main class="page-content" id="main">
+      <main class="page-content{% if page.url == '/' %} home-page{% endif %}" id="main">
         <h1>{{ page.heading | default: page.title | escape }}</h1>
         {{ content }}
       </main>

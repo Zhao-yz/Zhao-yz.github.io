@@ -9,6 +9,7 @@ vendor/
 .cache/
 .local/
 .agents/
+.conversation/
 
 # Operating system files
 .DS_Store

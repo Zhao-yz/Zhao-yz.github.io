@@ -1,1 +1,1 @@
-modules = ["ruby-3.2"]
+modules = ["ruby-3.2", "python-base-3.13"]
