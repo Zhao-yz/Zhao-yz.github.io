@@ -1,0 +1,77 @@
+{{- /*
+  Overrides the theme's list.html (home page and section pages).
+  - Entries follow AstroPaper's layout: blue title, then the date, then the one or two sentence description.
+  - Home and the posts section also list posts from the other language that have no translation here,
+    so the English site is not empty while most posts are in Chinese.
+*/ -}}
+{{- define "main" }}
+
+{{- if not .IsHome | and .Title }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description | markdownify }}
+  </div>
+  {{- end }}
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="post-content md-content">
+  {{- .Content }}
+</div>
+{{- end }}
+
+{{- if .IsHome }}
+{{- partial "home_info.html" . }}
+{{- end }}
+
+{{- $lang := .Lang }}
+{{- $pages := .RegularPages }}
+{{- if or .IsHome (and (eq .Kind "section") (in site.Params.mainSections .Section)) }}
+  {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{- range site.Home.AllTranslations }}
+    {{- if ne .Lang $lang }}
+      {{- range where .Site.RegularPages "Type" "in" site.Params.mainSections }}
+        {{- $translated := false }}
+        {{- range .Translations }}
+          {{- if eq .Lang $lang }}{{ $translated = true }}{{ end }}
+        {{- end }}
+        {{- if not $translated }}{{ $pages = $pages | append . }}{{ end }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- $pages = sort $pages "Date" "desc" }}
+
+{{- if .IsHome }}
+<h2 class="home-posts-title">{{ i18n "latest_posts" }}</h2>
+{{- end }}
+
+{{- range $pages }}
+<article class="c-entry">
+  <header class="entry-header">
+    <h2>{{ .Title }}</h2>
+  </header>
+  <div class="entry-date">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
+      <path d="M16 3v4" />
+      <path d="M8 3v4" />
+      <path d="M4 11h16" />
+    </svg>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+  </div>
+  {{- with .Description }}
+  <div class="entry-content">
+    <p>{{ . | plainify }}</p>
+  </div>
+  {{- end }}
+  <a class="entry-link" aria-label="{{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+</article>
+{{- end }}
+
+{{- end }}{{- /* end main */ -}}

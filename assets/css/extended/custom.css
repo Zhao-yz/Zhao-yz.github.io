@@ -1,0 +1,57 @@
+/* Post lists follow AstroPaper's layout: blue title, then the date, then a one or two sentence hook. */
+:root {
+    --entry-title: rgb(29, 106, 176);
+}
+
+:root[data-theme="dark"] {
+    --entry-title: rgb(120, 184, 255);
+}
+
+.list {
+    background: var(--theme);
+}
+
+/* The theme gives the home intro a 320px block; keep it compact so the post list shows above the fold. */
+.home-info {
+    min-height: auto;
+    margin: 40px 0 28px;
+}
+
+.home-posts-title {
+    margin-bottom: 20px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 22px;
+}
+
+.c-entry {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+.c-entry .entry-header h2 {
+    color: var(--entry-title);
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.c-entry:hover .entry-header h2 {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.c-entry .entry-date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.c-entry .entry-content {
+    margin: 6px 0 0;
+    color: var(--content);
+    font-size: 15px;
+    -webkit-line-clamp: 2;
+}

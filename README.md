@@ -1,47 +1,51 @@
-# Yuzhang (Ernie) Zhao — Portfolio
+# Yuzhang Zhao · personal site and blog
 
-This is a static Jekyll site for GitHub Pages. The published website is built directly from the repository root; it does not need a separate app, backend, or manual build workflow on GitHub.
+Source for https://zhao-yz.github.io/ , built with [Hugo](https://gohugo.io/) and the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme, deployed by GitHub Actions on every push to `main`.
 
-## Update the site
+English is the default language at the site root; Chinese lives under `/zh/`. The language switch in the header links the two home pages.
 
-- Edit `index.md`, `about.md`, `experience.md`, or `contact.md` to update page content. Each page has YAML front matter at the top for its title, description, and URL.
-- Edit `_config.yml` to update the site title, description, contact links, or navigation.
-- Shared HTML lives in `_layouts/default.html` and `_includes/`. Styles are in `assets/css/main.css`; the favicon is `assets/favicon.svg`.
-- Keep personal claims and metrics factual and supplied by Yuzhang. Do not add a phone number unless requested.
+## Layout
 
-## Preview locally
+| Path | What it is |
+| --- | --- |
+| `hugo.yaml` | Site config: languages, home intro, menus, social links |
+| `content/posts/` | Posts. `<slug>.md` is English, `<slug>.zh.md` is Chinese; the same slug in both languages links them as translations |
+| `content/about.md`, `content/about.zh.md` | About page in each language |
+| `layouts/list.html` | Overrides the theme's list page: blue title, date, one or two sentence description; also lists posts from the other language when they have no translation |
+| `assets/css/extended/custom.css` | Style overrides for the list above |
+| `themes/PaperMod` | Theme, a git submodule pinned to one commit |
+| `.github/workflows/hugo.yaml` | Build and deploy; pins the Hugo version |
 
-Install Ruby and Bundler if they are not already installed, then run:
+## Publish a new post
+
+1. Create `content/posts/<slug>.zh.md` (Chinese) or `content/posts/<slug>.md` (English). The slug becomes the URL, so keep it short, lowercase and hyphenated.
+2. Front matter:
+
+   ```yaml
+   ---
+   title: "Post title"
+   date: 2026-10-29
+   description: "One or two sentences. This is the hook shown under the title in post lists."
+   ---
+   ```
+
+   `date` is the publish date. Hugo skips posts dated in the future, so do not put a time later than now.
+3. Preview locally with `hugo server` and open http://localhost:1313/ (Chinese pages are under `/zh/`).
+4. Commit and push to `main`. The Actions run takes about a minute; check it under the repository's Actions tab.
+
+## Setup on a new machine
 
 ```sh
-bundle install
-bundle exec jekyll serve
+git clone --recurse-submodules https://github.com/Zhao-yz/Zhao-yz.github.io.git
 ```
 
-Open <http://127.0.0.1:4000>. Jekyll regenerates the local preview when you edit site files. The local server is only for previewing; GitHub Pages publishes the static site.
+If the repo was cloned without submodules, run `git submodule update --init`. Install Hugo extended (`winget install Hugo.Hugo.Extended` on Windows, `brew install hugo` on macOS); the version used in CI is in `.github/workflows/hugo.yaml`.
 
-To generate the static output locally instead:
+## Update the theme
 
 ```sh
-bundle exec jekyll build
+git submodule update --remote themes/PaperMod
+hugo server
 ```
 
-Jekyll writes build output to `_site/`. Do not commit that generated directory.
-
-## Publish with GitHub Pages
-
-1. Use the GitHub user-site repository named `Zhao-yz.github.io`.
-2. Push this repository’s contents to the `main` branch.
-3. In the repository’s **Settings → Pages**, select **Deploy from a branch**, choose `main`, and choose `/(root)`.
-4. Save. GitHub Pages will build this Jekyll site from the repository root. Keep `baseurl` empty in `_config.yml` for the user-site domain.
-
-The site uses GitHub Pages-supported `jekyll-seo-tag` and `jekyll-sitemap` plugins. Internal page links, the stylesheet, the favicon, and the sitemap URL use Jekyll URL filters.
-
-## Run Lighthouse
-
-1. Preview locally with `bundle exec jekyll serve`, or open the published GitHub Pages URL.
-2. In current desktop Google Chrome, open the page and open Developer Tools.
-3. Select the **Lighthouse** panel, choose **Mobile** or **Desktop**, and generate a report.
-4. Check Performance, Accessibility, Best Practices, and SEO. The target for each category is at least 90.
-
-Run the report on the home page and at least one content page. The site avoids external fonts, trackers, frameworks, and client-side JavaScript to keep the pages lightweight.
+Check the home page, a post and the About page in both languages, since `layouts/list.html` overrides a theme template. Then commit the new submodule commit.

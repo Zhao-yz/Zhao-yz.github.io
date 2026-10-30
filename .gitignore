@@ -1,16 +1,3 @@
-# Jekyll output and local caches
-_site/
-.jekyll-cache/
-.sass-cache/
-.bundle/
-vendor/
-
-# Replit-local files are not part of the published site
-.cache/
-.local/
-.agents/
-.conversation/
-
-# Operating system files
-.DS_Store
-Thumbs.db
+public/
+resources/_gen/
+.hugo_build.lock

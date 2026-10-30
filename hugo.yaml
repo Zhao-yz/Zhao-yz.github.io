@@ -1,0 +1,83 @@
+baseURL: "https://zhao-yz.github.io/"
+title: "Yuzhang Zhao"
+theme: "PaperMod"
+timeZone: "America/Los_Angeles"
+enableRobotsTXT: true
+hasCJKLanguage: true
+
+# English is the default and lives at the site root; Chinese lives under /zh/.
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: false
+
+# No tags or categories for now: with a handful of posts they would only add empty pages.
+taxonomies: {}
+
+markup:
+  goldmark:
+    extensions:
+      cjk:
+        enable: true
+        eastAsianLineBreaks: true
+        escapedSpace: true
+
+params:
+  env: production
+  author: "Yuzhang Zhao"
+  defaultTheme: auto
+  displayFullLangName: true
+  mainSections: ["posts"]
+  ShowReadingTime: true
+  ShowWordCount: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  assets:
+    favicon: "/favicon.svg"
+  socialIcons:
+    - name: github
+      url: "https://github.com/Zhao-yz"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/yuzhang-z"
+    - name: email
+      url: "mailto:yuzhang95@berkeley.edu"
+
+languages:
+  en:
+    label: "English"
+    locale: "en-US"
+    weight: 1
+    params:
+      description: "Yuzhang Zhao writes about AI agents and harnesses."
+      homeInfoParams:
+        Title: "Yuzhang Zhao"
+        Content: >
+          I use agent products heavily and build on them; my work and study run on a Claude Code + Codex workbench I built myself.
+          MBA candidate at UC Berkeley Haas, Product Manager Intern at TikTok, and previously co-founder and Head of Products
+          at United AI, an industrial AI start-up, for 6+ years.
+          Here I write about AI agents and harnesses, from what I see and do in practice.
+    menus:
+      main:
+        - name: "Posts"
+          pageRef: "/posts"
+          weight: 10
+        - name: "About"
+          pageRef: "/about"
+          weight: 20
+  zh:
+    label: "中文"
+    locale: "zh-CN"
+    weight: 2
+    params:
+      description: "Yuzhang Zhao 的博客：AI agent 与 harness 的观察和实践"
+      homeInfoParams:
+        Title: "Yuzhang Zhao"
+        Content: "Agent 产品的重度用户和构建者，工作和学习都跑在自建的 Claude Code + Codex 工作台上。UC Berkeley Haas MBA 在读，TikTok 产品经理实习生；此前 6 年多任工业 AI 创业公司 United AI 的联合创始人兼产品负责人。这里写我对 AI agent 和 harness 的观察与实践。"
+    menus:
+      main:
+        - name: "文章"
+          pageRef: "/posts"
+          weight: 10
+        - name: "关于"
+          pageRef: "/about"
+          weight: 20
