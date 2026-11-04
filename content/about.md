@@ -5,7 +5,7 @@ ShowToc: false
 ShowPostNavLinks: false
 ---
 
-I use agent products heavily and build on them. My work and study run on a personal agent workbench I built on Claude Code and Codex: 50 active skills, rules for multi-agent collaboration, and 2,600+ commits. I keep a running log of cases where an agent got the task right but didn't do it well, and I trace each failure back to context, tools, or the model.
+I use agent products heavily and build on them. My work, study, and daily life run on a personal agent workbench I built on Claude Code and Codex, and I use it every day. I keep a running log of cases where an agent got the task right but didn't do it well, and I trace each failure back to context, tools, or the model.
 
 Before business school, I spent 6+ years as co-founder and Head of Products at United AI, an industrial AI start-up, leading core products from 0 to 1 with a small team. At TikTok, where I've been a Product Manager Intern since May 2026, I work on creator-side products and used agents to build an education video pipeline and a product acceptance workflow. I'm a second-year MBA student at UC Berkeley Haas.
 
@@ -31,7 +31,7 @@ Before business school, I spent 6+ years as co-founder and Head of Products at U
 
 **Personal agent workbench** (Claude Code + Codex, Feb 2026 – present)
 
-- Built a personal agent workbench synced across devices: 50 active skills and rules for multi-agent collaboration, covering meeting notes, drafting shared cloud docs and revising them from comments, diagrams, course management, and information collection; 2,600+ commits.
+- Built a personal agent workbench synced across devices, with rules for multi-agent collaboration; I use it every day, for meeting notes, drafting shared cloud docs and revising them from comments, diagrams, course management, information collection, and everyday tasks outside work.
 - Self-improving loop: designed sleep-review, which scans Claude Code and Codex session logs every day, flags user corrections, repeated tasks, and skill friction, and turns them into three tiers of improvement proposals (memory, skill additions, structural changes) that ship after human review.
 - Search: treat search as the agent's context supply. Built routing by query type, added paid Chinese and English search APIs including DeepSeek and Exa, and packaged it as my own search skill.
 - Multi-model collaboration: model-council has 5 models answer blind and review each other anonymously, then a chair synthesizes consensus and disagreement; cross-review has Claude and Codex take turns reviewing and testing the actual artifacts.
