@@ -51,7 +51,7 @@ Before business school, I spent 6+ years as co-founder and Head of Products at U
 ### United AI
 
 **Co-founder; Head of Products, Marketing and Strategic Planning** · Tianjin, China  
-*2018 – Feb 2025 · Series A start-up in Industrial IoT, $20M valuation*
+*2019 – Feb 2025 · Series A start-up in Industrial IoT, $20M valuation*
 
 United AI is a SaaS platform for predictive maintenance (PDM) and Advanced Planning & Scheduling (APS).
 
