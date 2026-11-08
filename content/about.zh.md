@@ -63,5 +63,5 @@ Agent 产品的重度用户和构建者。工作、学习和生活都跑在自�
 ## 技能与其他
 
 - 荣誉：胡润 China Under 30s To Watch（2021，创业者榜）
-- Agent 工具：Claude Code、Cowork、Codex、MCP、多 agent 编排、vibe coding 做原型；SQL、Python；A/B 测试；PMP
+- Agent 工具：Claude Code、Cowork、Codex、MCP、多 agent 编排、vibe coding 做原型；SQL、Python；PMP
 - 星际争霸 2 天梯全国前 100，全国大学生星际争霸比赛 8 强

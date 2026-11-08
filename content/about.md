@@ -75,6 +75,6 @@ United AI is a SaaS platform for predictive maintenance (PDM) and Advanced Plann
 ## Honors and Skills
 
 - Honors: Contributing drafter, China shipbuilding industry group standard T/CSNAME 100—2025 on machinery condition monitoring (2025); Hurun China Under 30s To Watch (Entrepreneur list, 2021).
-- Tools: Claude Code, Cowork, Codex, MCP, multi-agent orchestration, prototyping with vibe coding; SQL, Python; A/B testing.
+- Tools: Claude Code, Cowork, Codex, MCP, multi-agent orchestration, prototyping with vibe coding; SQL, Python.
 - Certifications: Project Management Professional (PMP); Vibration Analysis: Category II.
 - Interests: StarCraft II (top 100 on the national ladder; top 8 at a national collegiate tournament).
